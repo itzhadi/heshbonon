@@ -1,0 +1,15 @@
+{
+  "name": "heshbonon",
+  "version": "1.0.0",
+  "description": "Heshbonon app",
+  "main": "client/index.js",
+  "dependencies": {
+    "react-redux": "^7.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "author": "itzik diei",
+  "license": "ISC"
+}
