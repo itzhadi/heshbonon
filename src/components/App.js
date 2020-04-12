@@ -5,12 +5,14 @@ import Balance from './Balance'
 import History from './History'
 import AddIncome from './AddIncome'
 import ChangeBalance from './ChangeBalance'
+import Header from './Header';
 import history from '../history';
 
 const App = () => {
     return <div>
                 <Router history={history}>
                     <div>
+                        <Header/>
                         <Switch>
                             <Route path="/" exact component={Home}/>
                             <Route path="/Balance" exact component={Balance}/>
