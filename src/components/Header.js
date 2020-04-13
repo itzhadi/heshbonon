@@ -4,25 +4,35 @@ import {Link} from 'react-router-dom';
 const Header = () =>{
     return (
 
-        <div class="ui fluid three item menu" dir="center">
-        <Link to="/Balance" class="item">
-          <i class="balance scale icon"></i>
-          מאזן
-        </Link>
-        <Link to="/History" class="item">
-          <i class="history icon"></i>
-          היסטוריה
-        </Link>
-        <Link to="/AddIncome" class="item">
-          <i class="plus icon"></i>
-          הוסף הכנסה
-        </Link>
+        <div className="ui labeled icon menu" dir="rtl">
+            <div className="right menu">
+                        
+                    <Link to="/" className="item">
+                        <i class="home icon"></i>
+                        בית
+                     </Link>
+                    <Link to="/Balance" className="item">
+                        <i class="balance scale icon"></i>
+                        מאזן
+                    </Link>
+                    <Link to="/History" className="item">
+                        <i class="history icon"></i>
+                        היסטוריה
+                    </Link>
+                    <Link to="/AddIncome" className="item">
+                        <i class="plus icon"></i>
+                        הוסף הכנסה
+                    </Link>
+                    <div className="ui icon input">
+                        <input type="text" size="50" dir="rtl" placeholder="חיפוש..."/>
+                        <i className="search link icon"></i>
+                    </div>
+            </div>
+        <a className="ui item">
+            Logout
+          </a>
       </div>
-            );
+    );
 };
 
 export default Header;
-
-
-
-//ui vertical labeled icon menu
