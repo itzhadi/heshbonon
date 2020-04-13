@@ -11,16 +11,18 @@ import history from '../history';
 const App = () => {
     return <div>
                 <Router history={history}>
+                    <Header/>
                     <div>
-                        <Header/>
-                        <Switch>
-                            <Route path="/" exact component={Home}/>
-                            <Route path="/Balance" exact component={Balance}/>
-                            <Route path="/History" exact component={History}/>
-                            <Route path="/AddIncome" exact component={AddIncome}/>
-                            <Route path="ChangeBalance" exact component={ChangeBalance}/>
-                        </Switch>
-                    </div>
+                        <div>
+                            <Switch>
+                                <Route path="/" exact component={Home}/>
+                                <Route path="/Balance" exact component={Balance}/>
+                                <Route path="/History" exact component={History}/>
+                                <Route path="/AddIncome" exact component={AddIncome}/>
+                                <Route path="ChangeBalance" exact component={ChangeBalance}/>
+                            </Switch>
+                            </div>
+                        </div>
                 </Router>    
           </div>
 }
