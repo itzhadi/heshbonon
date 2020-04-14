@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import GoogleAuth from './GoogleAuth'
 
 const Header = () =>{
     return (
@@ -8,19 +9,19 @@ const Header = () =>{
             <div className="right menu">
                         
                     <Link to="/" className="item">
-                        <i class="home icon"></i>
+                        <i className="home icon"></i>
                         בית
                      </Link>
                     <Link to="/Balance" className="item">
-                        <i class="balance scale icon"></i>
+                        <i className="balance scale icon"></i>
                         מאזן
                     </Link>
                     <Link to="/History" className="item">
-                        <i class="history icon"></i>
+                        <i className="history icon"></i>
                         היסטוריה
                     </Link>
                     <Link to="/AddIncome" className="item">
-                        <i class="plus icon"></i>
+                        <i className="plus icon"></i>
                         הוסף הכנסה
                     </Link>
                     <div className="ui icon input">
@@ -28,9 +29,9 @@ const Header = () =>{
                         <i className="search link icon"></i>
                     </div>
             </div>
-        <a className="ui item">
-            Logout
-          </a>
+            <div className="ui item">
+                 <GoogleAuth/>
+            </div>
       </div>
     );
 };
