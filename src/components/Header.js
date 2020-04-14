@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import GoogleAuth from './GoogleAuth'
+import UserNameAndImg from './UserNameAndImg';
 
 const Header = () =>{
     return (
 
         <div className="ui labeled icon menu" dir="rtl">
-            <div className="right menu">
-                        
+            <div className="right menu">     
                     <Link to="/" className="item">
                         <i className="home icon"></i>
                         בית
@@ -32,6 +32,7 @@ const Header = () =>{
             <div className="ui item">
                  <GoogleAuth/>
             </div>
+            <UserNameAndImg/>
       </div>
     );
 };
