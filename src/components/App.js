@@ -6,7 +6,6 @@ import History from './History'
 import AddIncome from './AddIncome'
 import ChangeBalance from './ChangeBalance'
 import Header from './Header';
-import UserNameAndImg from './UserNameAndImg';
 import history from '../history';
 
 const App = () => {

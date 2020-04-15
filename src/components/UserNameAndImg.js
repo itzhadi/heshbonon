@@ -11,7 +11,7 @@ class UserNameAndImg extends React.Component{
             isSignedIn ?
             (
                 <div className="item">
-                    <img className="ui mini circular image" src={userImg}/>
+                    <img className="ui mini circular image" src={userImg} alt="User"/>
                     <div className="middle aligned content">
                         <div className="header">{userName}</div>
                     </div>
