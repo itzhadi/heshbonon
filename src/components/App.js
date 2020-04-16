@@ -9,7 +9,7 @@ import Header from './Header';
 import history from '../history';
 
 const App = () => {
-    return <div>
+    return <div className="ui container">
                 <Router history={history}>
                     <Header/>
                     <div>
