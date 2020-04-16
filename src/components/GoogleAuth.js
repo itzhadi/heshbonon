@@ -44,7 +44,7 @@ class GoogleAuth extends React.Component{
         }
         else if(isSignedIn){
             return ( 
-                <button onClick={this.signOutGoogle} className="ui red gogle button">
+                <button onClick={this.signOutGoogle} className="ui red gogle button" style={{marginTop: '5px' , size:'30px'}}>
                       התנתק  
                     <i className="google icon" />
                 </button>
@@ -52,7 +52,7 @@ class GoogleAuth extends React.Component{
         }
         else{
             return(
-                <button onClick={this.signInGoogle} className="ui green gogle button">
+                <button onClick={this.signInGoogle} className="ui green gogle button" style={{marginTop: '5px' , size:'30px'}}>
                     הרשם עם 
                     <i className="google icon" />
                 </button>

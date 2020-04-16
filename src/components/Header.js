@@ -2,10 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import GoogleAuth from './GoogleAuth'
 import UserNameAndImg from './UserNameAndImg';
+import Date from './DateComp';
 
 const Header = () =>{
     return (
-
+        <div className="ui container">
         <div className="ui labeled icon menu" dir="rtl">
             <div className="right menu">     
                     <Link to="/" className="item">
@@ -30,9 +31,13 @@ const Header = () =>{
                     </div>
             </div>
             <div className="ui item">
+                <Date/>
+            </div>
+            <div className="ui item">
                  <GoogleAuth/>
             </div>
             <UserNameAndImg/>
+      </div>
       </div>
     );
 };
