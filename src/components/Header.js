@@ -25,10 +25,7 @@ const Header = () =>{
                         <i className="plus icon"></i>
                         הוסף הכנסה
                     </Link>
-                    <div className="ui icon input">
-                        <input type="text" size="50" dir="rtl" placeholder="חיפוש..."/>
-                        <i className="search link icon"></i>
-                    </div>
+                    
             </div>
             <div className="ui item">
                 <Date/>
@@ -43,3 +40,8 @@ const Header = () =>{
 };
 
 export default Header;
+
+// <div className="ui icon input">
+//                         <input type="text" size="50" dir="rtl" placeholder="חיפוש..."/>
+//                         <i className="search link icon"></i>
+//                     </div>
