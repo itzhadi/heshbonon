@@ -13,3 +13,11 @@
     text-align: center;
     margin-top: 15px;
   }
+
+  .monthPickerStyle {
+    color: black;
+    font-size:medium;
+    font-family: fantasy;
+    text-align: center;
+    margin-top: 15px;
+  }
