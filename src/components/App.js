@@ -6,14 +6,14 @@ import History from './History'
 import AddIncome from './AddIncome'
 import ChangeBalance from './ChangeBalance'
 import Header from './Header';
-import DatePicker from './DatePIcker';
+import DatePickerComp from './DatePickerComp';
 import history from '../history';
 
 const App = () => {
     return <div className="ui container">
                 <Router history={history}>
                     <Header/>
-                    <DatePicker/>
+                    <DatePickerComp/>
                     <div>
                         <div>
                             <Switch>
