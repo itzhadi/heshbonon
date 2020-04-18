@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment';
 import {connect} from 'react-redux'
 import DatePicker , {registerLocale} from 'react-datepicker'
+import{showHideDatePicker} from '../actions'
 import "react-datepicker/dist/react-datepicker.css";
 import 'moment/locale/he';
 import he from "date-fns/locale/he"; 
@@ -10,8 +11,7 @@ registerLocale("he", he);
 class DatePickerComp extends React.Component{
 
     state = { month : moment(),
-             startDate:new Date(),
-             showDatePickerFlag:false}
+             startDate:new Date()}
 
      decrementMonth = () => {
         this.setState(
@@ -32,13 +32,12 @@ class DatePickerComp extends React.Component{
         this.setState({startDate:date , showDatePickerFlag:!this.state.showDatePickerFlag});
     }
 
-    showDatePicker = () =>{
-            this.setState({showDatePickerFlag:!this.state.showDatePickerFlag}); 
+    showHideDatePicker = () =>{
+            this.props.showHideDatePicker(!this.props.showDatePickerFlag);
     }
 
     render(){
-            const {isSignedIn} = this.props;
-            const {showDatePickerFlag} = this.state;
+            const {isSignedIn,showDatePickerFlag} = this.props;
             return(
                     isSignedIn ?
                     (     
@@ -49,21 +48,19 @@ class DatePickerComp extends React.Component{
                                 </span>
                                 <span>{this.state.month.format('YYYY - MMMM')}</span>
                                 <span onClick={this.decrementMonth}> {<i className="chevron circle right icon"></i>} </span>  
-                                <span onClick={this.showDatePicker}><i className="calendar alternate outline icon"></i> </span>
-                            
-                                {
-                                showDatePickerFlag ?
+                                <span onClick={this.showHideDatePicker}><i className="calendar alternate outline icon"></i> </span>
+                                {showDatePickerFlag ?
                                 <DatePicker
                                 locale="he"
                                 className="monthPickerStyle"
                                 selected={this.state.startDate}
-                                onChange={this.handleChange}
-                                onClickOutside={this.showDatePicker}
-                                dateFormat="MM/yyyy"
+                                onChange={this.showHideDatePicker}
+                                onClickOutside={this.showHideDatePicker}
+                                dateFormat="yyyy - MMMM"
                                 showMonthYearPicker
                                 showFullMonthYearPicker
-                                /> : null
-                                }
+                                maxDate={new Date()}/>
+                                : null}
                             </h1>
                         </div>
                     ) : null
@@ -72,7 +69,9 @@ class DatePickerComp extends React.Component{
     }
 
 const mapStateToProps = (state) => {
-    return {isSignedIn:state.auth.isSignedIn};
+    return {isSignedIn:state.auth.isSignedIn,
+            showDatePickerFlag : state.datePicker.showDatePickerFlag
+            };
 }
 
-export default connect(mapStateToProps)(DatePickerComp);
+export default connect(mapStateToProps,{showHideDatePicker})(DatePickerComp);
