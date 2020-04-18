@@ -11,7 +11,7 @@ export default (state = INTIAL_STATE , action) => {
     
     switch(action.type){
         case SIGN_IN:{
-                        const {userId,userName,userImg} = action.payload
+                        const {userId,userName,userImg} = action.payload;
                         return {...state, isSignedIn:true , userId:userId , userName:userName , userImg:userImg}
                     }
         case SIGN_OUT:
