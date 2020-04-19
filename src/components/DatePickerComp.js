@@ -28,8 +28,8 @@ class DatePickerComp extends React.Component{
     }
 
     handleChange = date =>{
-        console.log(date);
-        this.setState({startDate:date , showDatePickerFlag:!this.state.showDatePickerFlag});
+        this.setState({startDate:date , month:moment(date)});
+        this.showHideDatePicker();
     }
 
     showHideDatePicker = () =>{
@@ -44,23 +44,25 @@ class DatePickerComp extends React.Component{
                         <div className="datePickerStyle">    
                             <h1 className="datePickerStyle">
                                 <span onClick={this.incrementMonth}>
-                                {this.state.month.clone().add(1, 'hour') > moment() ? '' : <i className="chevron circle left icon"></i>}
+                                {this.state.month.clone().add(1, 'month') > moment() ? '' : <i className="chevron circle left icon"></i>}
                                 </span>
                                 <span>{this.state.month.format('YYYY - MMMM')}</span>
                                 <span onClick={this.decrementMonth}> {<i className="chevron circle right icon"></i>} </span>  
                                 <span onClick={this.showHideDatePicker}><i className="calendar alternate outline icon"></i> </span>
+
                                 {showDatePickerFlag ?
                                 <DatePicker
                                 locale="he"
                                 className="monthPickerStyle"
                                 selected={this.state.startDate}
-                                onChange={this.showHideDatePicker}
+                                onChange={this.handleChange}
                                 onClickOutside={this.showHideDatePicker}
                                 dateFormat="yyyy - MMMM"
                                 showMonthYearPicker
                                 showFullMonthYearPicker
                                 maxDate={new Date()}/>
                                 : null}
+                                
                             </h1>
                         </div>
                     ) : null
