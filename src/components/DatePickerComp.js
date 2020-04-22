@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment';
 import {connect} from 'react-redux'
 import DatePicker , {registerLocale} from 'react-datepicker'
-import{showHideDatePicker} from '../actions'
+import{showHideDatePicker,decrementMonth,incrementMonth,changeMonth,changeStartDate} from '../actions'
 import "react-datepicker/dist/react-datepicker.css";
 import 'moment/locale/he';
 import he from "date-fns/locale/he"; 
@@ -10,25 +10,17 @@ registerLocale("he", he);
 
 class DatePickerComp extends React.Component{
 
-    state = { month : moment(),
-             startDate:new Date()}
-
      decrementMonth = () => {
-        this.setState(
-            prevState => ({month : prevState.month.subtract(1,'month')}),
-            console.log(this.state.month)
-        );
+        this.props.decrementMonth();
     }
 
     incrementMonth = () => {
-        this.setState(
-            prevState => ({month:prevState.month.add(1,'month')}),
-            console.log(this.state.month)
-            );
+            this.props.incrementMonth();
     }
 
     handleChange = date =>{
-        this.setState({startDate:date , month:moment(date)});
+        this.props.changeStartDate(date)
+        this.props.changeMonth(moment(date));
         this.showHideDatePicker();
     }
 
@@ -37,16 +29,16 @@ class DatePickerComp extends React.Component{
     }
 
     render(){
-            const {isSignedIn,showDatePickerFlag} = this.props;
+            const {isSignedIn,showDatePickerFlag,month,startDate} = this.props;
             return(
                     isSignedIn ?
                     (     
                         <div className="datePickerStyle">    
                             <h1 className="datePickerStyle">
                                 <span onClick={this.incrementMonth}>
-                                {this.state.month.clone().add(1, 'month') > moment() ? '' : <i className="chevron circle left icon"></i>}
+                                {month.clone().add(1, 'month') > moment() ? '' : <i className="chevron circle left icon"></i>}
                                 </span>
-                                <span>{this.state.month.format('YYYY - MMMM')}</span>
+                                <span>{month.format('YYYY - MMMM')}</span>
                                 <span onClick={this.decrementMonth}> {<i className="chevron circle right icon"></i>} </span>  
                                 <span onClick={this.showHideDatePicker}><i className="calendar alternate outline icon"></i> </span>
 
@@ -54,15 +46,15 @@ class DatePickerComp extends React.Component{
                                 <DatePicker
                                 locale="he"
                                 className="monthPickerStyle"
-                                selected={this.state.startDate}
+                                selected={startDate}
                                 onChange={this.handleChange}
                                 onClickOutside={this.showHideDatePicker}
                                 dateFormat="yyyy - MMMM"
                                 showMonthYearPicker
                                 showFullMonthYearPicker
-                                maxDate={new Date()}/>
+                                maxDate={new Date()}
+                                />
                                 : null}
-                                
                             </h1>
                         </div>
                     ) : null
@@ -72,8 +64,16 @@ class DatePickerComp extends React.Component{
 
 const mapStateToProps = (state) => {
     return {isSignedIn:state.auth.isSignedIn,
-            showDatePickerFlag : state.datePicker.showDatePickerFlag
+            showDatePickerFlag : state.datePicker.showDatePickerFlag,
+            month:state.datePicker.month,
+            startDate:state.datePicker.startDate
             };
 }
 
-export default connect(mapStateToProps,{showHideDatePicker})(DatePickerComp);
+export default connect(mapStateToProps,
+    {showHideDatePicker,
+    incrementMonth,
+    decrementMonth,
+    changeMonth,
+    changeStartDate})
+    (DatePickerComp);
