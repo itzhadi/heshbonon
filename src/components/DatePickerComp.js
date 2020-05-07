@@ -36,10 +36,10 @@ class DatePickerComp extends React.Component{
                         <div className="datePickerStyle">    
                             <h1 className="datePickerStyle">
                                 <span onClick={this.incrementMonth}>
-                                {month.clone().add(1, 'month') > moment() ? '' : <i className="chevron circle left icon"></i>}
+                                {month.clone().add(1, 'month') > moment() ? '' : <i className="chevron left icon" style={{marginRight:1}}></i>}
                                 </span>
                                 <span>{month.format('YYYY - MMMM')}</span>
-                                <span onClick={this.decrementMonth}> {<i className="chevron circle right icon"></i>} </span>  
+                                <span onClick={this.decrementMonth}> {<i className="chevron right icon" style={{marginLeft:-18 , marginRight:-10}}></i>} </span>  
                                 <span onClick={this.showHideDatePicker}><i className="calendar alternate outline icon"></i> </span>
 
                                 {showDatePickerFlag ?
