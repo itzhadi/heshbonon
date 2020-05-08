@@ -1,7 +1,8 @@
 import React from 'react';
-import {Field , reduxForm,SubmissionError, getFormSyncWarnings } from 'redux-form';
+import {Field , reduxForm} from 'redux-form';
 
 class Home extends React.Component{
+
 
     renderError=({error,touched})=>{
         if(error && touched){
@@ -32,18 +33,17 @@ class Home extends React.Component{
     }
 
     onSubmit = (formValues) =>{
-        //this.props.onSubmit(formValues);
-        //console.log(formValues);
+        // this.props.onSubmit(formValues);
+        // console.log(formValues);
     }
 
     render(){
         return (
-            
                 <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error" dir="rtl" >
                     <Field name="outputDescription" component={this.renderInput} placeholder="על מה הוצאת?" type="text"/>
                     <Field name="outputAmount"  component={this.renderInput} placeholder="סכום"  type="number"/>
                     <div style={{alignItems:"center" , justifyContent:"center" , display:"flex"}}>
-                        <button className="ui large grey button" style={{width:300 , height:50}}>הכנס הוצאה</button>
+                        <button className="ui big primary button" style={{width:300 , height:50 , fontSize:"large"}}>הכנס הוצאה</button>
                     </div>
                 </form>
                 );

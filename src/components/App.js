@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route,Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Home from './Home'
 import Balance from './Balance'
 import History from './History'
@@ -9,12 +10,15 @@ import Header from './Header';
 import DatePickerComp from './DatePickerComp';
 import history from '../history';
 
-const App = () => {
-    return <div className="ui container">
+class App extends React.Component {
+    render(){
+        const {isSignedIn} = this.props;
+    return (<div className="ui container">
                 <Router history={history}>
                     <Header/>
-                    <DatePickerComp/>
+                    {isSignedIn ? (
                     <div>
+                    <DatePickerComp/>
                         <div>
                             <Switch>
                                 <Route path="/" exact component={Home}/>
@@ -25,8 +29,14 @@ const App = () => {
                             </Switch>
                             </div>
                         </div>
+                    ) : null}
                 </Router>    
-          </div>
+          </div>)
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {isSignedIn:state.auth.isSignedIn};
+}
+
+export default connect(mapStateToProps)(App);
