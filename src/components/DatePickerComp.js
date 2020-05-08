@@ -29,10 +29,8 @@ class DatePickerComp extends React.Component{
     }
 
     render(){
-            const {isSignedIn,showDatePickerFlag,month,startDate} = this.props;
-            return(
-                    isSignedIn ?
-                    (     
+            const {showDatePickerFlag,month,startDate} = this.props;
+            return(    
                         <div className="datePickerStyle">    
                             <h1 className="datePickerStyle">
                                 <span onClick={this.incrementMonth}>
@@ -57,7 +55,6 @@ class DatePickerComp extends React.Component{
                                 : null}
                             </h1>
                         </div>
-                    ) : null
                   );
             }
     }
