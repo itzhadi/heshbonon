@@ -1,0 +1,6 @@
+type Incom @model {
+  id: ID!
+  name: String!
+  description: String
+  amount: Int
+}

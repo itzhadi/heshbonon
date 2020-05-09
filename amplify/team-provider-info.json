@@ -1,0 +1,15 @@
+{
+    "itzikdiei": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-heshbonon-itzikdiei-165422-authRole",
+            "UnauthRoleArn": "arn:aws:iam::235912588442:role/amplify-heshbonon-itzikdiei-165422-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::235912588442:role/amplify-heshbonon-itzikdiei-165422-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-heshbonon-itzikdiei-165422-deployment",
+            "UnauthRoleName": "amplify-heshbonon-itzikdiei-165422-unauthRole",
+            "StackName": "amplify-heshbonon-itzikdiei-165422",
+            "StackId": "arn:aws:cloudformation:us-east-1:235912588442:stack/amplify-heshbonon-itzikdiei-165422/9a3174e0-91fc-11ea-9254-12da3ecd6186",
+            "AmplifyAppId": "d2fz17ongr88sq"
+        }
+    }
+}
