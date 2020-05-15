@@ -16,5 +16,26 @@
                 "cognito47659217": {}
             }
         }
+    },
+    "heshbonon": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-heshbonon-heshbonon-202704-authRole",
+            "UnauthRoleArn": "arn:aws:iam::235912588442:role/amplify-heshbonon-heshbonon-202704-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::235912588442:role/amplify-heshbonon-heshbonon-202704-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-heshbonon-heshbonon-202704-deployment",
+            "UnauthRoleName": "amplify-heshbonon-heshbonon-202704-unauthRole",
+            "StackName": "amplify-heshbonon-heshbonon-202704",
+            "StackId": "arn:aws:cloudformation:us-east-2:235912588442:stack/amplify-heshbonon-heshbonon-202704/4cd96bb0-96d1-11ea-9067-064ea827a74e",
+            "AmplifyAppId": "dehvnp06hfkrt"
+        },
+        "categories": {
+            "auth": {
+                "cognito47659217": {}
+            },
+            "function": {
+                "outpotfunction": {}
+            }
+        }
     }
 }
