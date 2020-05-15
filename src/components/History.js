@@ -1,7 +1,11 @@
 import React from 'react';
 
-const History = () => {
+
+class History extends React.Component {
+
+    render(){
     return <div>History</div>
+    }
 }
 
 export default History;
