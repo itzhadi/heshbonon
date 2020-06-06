@@ -14,15 +14,15 @@
         },
     
     
-          "functionoutpotfunctionName": {
+          "functionoutputfunctionName": {
             "Type": "String",
-            "Default": "functionoutpotfunctionName"
+            "Default": "functionoutputfunctionName"
           },
         
           
-          "functionoutpotfunctionArn": {
+          "functionoutputfunctionArn": {
             "Type": "String",
-            "Default": "functionoutpotfunctionArn"
+            "Default": "functionoutputfunctionArn"
           }
         
           
@@ -41,13 +41,13 @@
     },
     "Resources": {
         
-        "PolicyAPIGWoutputapiauth": {
+        "PolicyAPIGWoutputApiauth": {
             "DependsOn": [
-              "outputapi"
+              "outputApi"
             ],
             "Type": "AWS::IAM::Policy",
             "Properties": {
-              "PolicyName": "PolicyAPIGWoutputapiauth",
+              "PolicyName": "PolicyAPIGWoutputApiauth",
               "Roles": [
                 {"Ref": "authRoleName"}
               ],
@@ -77,7 +77,7 @@
                             },
                             ":",
                             {
-                              "Ref": "outputapi"
+                              "Ref": "outputApi"
                             },
                             "/",
                             {
@@ -108,7 +108,7 @@
                             },
                             ":",
                             {
-                              "Ref": "outputapi"
+                              "Ref": "outputApi"
                             },
                             "/",
                             {
@@ -141,16 +141,16 @@
         
         
         
-      "outputapi": {
+      "outputApi": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "outputapi",
+          "Name": "outputApi",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "outputapi"
+              "title": "outputApi"
             },
             "host": {
                 "Fn::Join": [
@@ -278,7 +278,7 @@
                             
                             {
                                 
-                                "Ref": "functionoutpotfunctionArn"
+                                "Ref": "functionoutputfunctionArn"
                             },
                             
                             "/invocations"
@@ -383,7 +383,7 @@
                           
                           {
                             
-                            "Ref": "functionoutpotfunctionArn"
+                            "Ref": "functionoutputfunctionArn"
                           },
                           
                           "/invocations"
@@ -440,12 +440,12 @@
                   
         
         
-        "functionoutpotfunctionPermissionoutputapi": {
+        "functionoutputfunctionPermissionoutputApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionoutpotfunctionName"
+                        "Ref":  "functionoutputfunctionName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -464,7 +464,7 @@
                             },
                             ":",
                             {
-                                "Ref": "outputapi"
+                                "Ref": "outputApi"
                             },
                             "/*/*/*"
                         ]
@@ -475,7 +475,7 @@
         
         
         
-      "DeploymentAPIGWoutputapi": {
+      "DeploymentAPIGWoutputApi": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -489,7 +489,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "outputapi"
+            "Ref": "outputApi"
           }
         }
       }
@@ -497,15 +497,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "outputapi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "outputApi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "outputapi"
+          "Value": "outputApi"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "outputapi"}
+          "Value": {"Ref": "outputApi"}
         }
     }
   }

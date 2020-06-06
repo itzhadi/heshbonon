@@ -2,7 +2,7 @@
     "paths": [
         {
             "name": "/output",
-            "lambdaFunction": "outpotfunction",
+            "lambdaFunction": "outputfunction",
             "privacy": {
                 "private": true,
                 "auth": [
@@ -11,23 +11,23 @@
             }
         }
     ],
-    "resourceName": "outputapi",
-    "apiName": "outputapi",
+    "resourceName": "outputApi",
+    "apiName": "outputApi",
     "functionArns": [
         {
-            "lambdaFunction": "outpotfunction"
+            "lambdaFunction": "outputfunction"
         }
     ],
     "privacy": {
         "auth": 1,
         "unauth": 0,
-        "authRoleName": "amplify-heshbonon-itzikdiei-165422-authRole",
-        "unAuthRoleName": "amplify-heshbonon-itzikdiei-165422-unauthRole"
+        "authRoleName": "amplify-heshbonon-heshbonon-202704-authRole",
+        "unAuthRoleName": "amplify-heshbonon-heshbonon-202704-unauthRole"
     },
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "outpotfunction",
+            "resourceName": "outputfunction",
             "attributes": [
                 "Name",
                 "Arn"

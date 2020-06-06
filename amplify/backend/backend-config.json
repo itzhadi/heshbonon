@@ -29,10 +29,29 @@
 					]
 				}
 			]
+		},
+		"outputApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "outputfunction",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
 		}
 	},
 	"function": {
 		"outpotfunction": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
+		},
+		"outputfunction": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
